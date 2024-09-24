@@ -14,7 +14,7 @@ export class Server{
         this.listen();
         this.middlewares();//debe de ir antes de las rutas
         this.routes();
-        this.dbConnection();
+        // this.dbConnection();
     }
 
     listen(){
@@ -33,19 +33,19 @@ export class Server{
         this.app.use(cors())
     }
 
-    async dbConnection(){
-        const connection = await mysql.createConnection({
-            host: 'localhost',
-            user:  'root',
-            password: 'mysql',
-            database: 'app-qr'
-        })
+    // async dbConnection(){
+    //     const connection = await mysql.createConnection({
+    //         host: 'localhost',
+    //         user:  'root',
+    //         password: 'mysql',
+    //         database: 'app-qr'
+    //     })
 
-       try {
-            connection.connect();
-            console.log('se realizó la conexión correctamente');
-       } catch (error) {
-            console.log('error', error)
-       }
-    }
+    //    try {
+    //         connection.connect();
+    //         console.log('se realizó la conexión correctamente');
+    //    } catch (error) {
+    //         console.log('error', error)
+    //    }
+    // }
 }

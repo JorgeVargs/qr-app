@@ -14,19 +14,46 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getUser = exports.loginUser = exports.newUser = void 0;
 const bcrypt_1 = __importDefault(require("bcrypt"));
+const userService_1 = require("../services/userService");
 const newUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { name, email, password, rol } = req.body;
-    const hashedPassword = yield bcrypt_1.default.hash(password, 10);
+    const { nombre, email, password, rol } = req.body;
+    try {
+        //validar si existe el usuario
+        const userExist = yield (0, userService_1.finUserByEmail)(email);
+        if (userExist) {
+            return res.status(400).json({
+                mensaje: "El usuario ya existe"
+            });
+        }
+        //encriptar contraseña
+        const hashedPassword = yield bcrypt_1.default.hash(password, 10);
+        //crear usuario
+        const newIuserId = yield (0, userService_1.createUser)({
+            nombre, email, password: hashedPassword, rol
+        });
+        return res.status(201).json({
+            mensaje: "Usuario creado con exito",
+            idUser: newIuserId
+        });
+    }
+    catch (error) {
+        console.log(`Error: ${error}`);
+    }
     res.json({
         mensaje: "registro de usuario",
-        password: hashedPassword
     });
 });
 exports.newUser = newUser;
 const loginUser = (req, res) => {
-    res.json({
-        mensaje: "login de usuario"
-    });
+    try {
+        //valida si existe el usuario con el correo
+        //vcalida si la contraseña es la misma
+        //crea el token con jwt
+        res.status(200).json({ mensaje: "Inicio de sesión exitoso" });
+    }
+    catch (error) {
+        res.status(500).json({ mensaje: "Error al iniciar sesión." });
+    }
 };
 exports.loginUser = loginUser;
 const getUser = (req, res) => {
