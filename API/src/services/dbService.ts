@@ -9,11 +9,3 @@ export const db = mysql.createPool({
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
   });
-
-
-// export const db = mysql.createPool({
-//     host: 'localhost',
-//     user:  'root',
-//     password: 'mysql',
-//     database: 'app-qr'
-// })

@@ -3,11 +3,9 @@ import { User } from '../models/userModel';
 
 export const finUserByEmail = async(email:string) => {
     try {
-        const [rows] = await db.query('SELECT COUNT(*) AS count FROM usuarios WHERE email = ?',[email]);
-        
-        const count = (rows as any[])[0].count;
+        const [result] = await db.query<any>('SELECT id_usuario,email,password FROM usuarios WHERE email = ?',[email]);
 
-        return count;
+        return result;
         
     } catch (error) {
         console.log(`Error in query ${error}`)
@@ -25,5 +23,13 @@ export const createUser = async(user:User) => {
     );
 
     return (result as any).insertId;
+}
 
+export const findUserById = async(id_usuario:string) =>{
+    try {
+        const [result] = await db.query<any>('SELECT nombre,email,rol FROM usuarios WHERE id_usuario = ?',[id_usuario]);
+        return result;
+    } catch (error) {
+        console.log(`Error in query ${error}`)
+    }
 }
