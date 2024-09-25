@@ -13,7 +13,12 @@ module.exports = {
       '6': '6px',
       '8': '8px',
     },
-    extend: {},
+    extend: {
+      fontFamily:{
+        montserrat:['Montserrat Alternates'],
+        roboto:['Roboto']
+      }
+    },
    
   },
   plugins: [
