@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-points',
@@ -9,5 +9,11 @@ import { RouterLink } from '@angular/router';
   styleUrl: './points.component.scss'
 })
 export class PointsComponent {
-
+  constructor(
+    private router: Router
+  ){}
+  logOut(){
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+  }
 }

@@ -3,6 +3,7 @@ import mysql from 'mysql2/promise';
 import cors from 'cors';
 
 import routesUser from '../routes/routesUser';
+import routesQr from '../routes/routesQrcode';
 
 export class Server{
     private app:Application;
@@ -26,6 +27,7 @@ export class Server{
 
     routes(){
         this.app.use('/api/users',routesUser);
+        this.app.use('/api/qrcodes',routesQr);
     }
 
     middlewares(){

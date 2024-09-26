@@ -7,6 +7,7 @@ exports.Server = void 0;
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const routesUser_1 = __importDefault(require("../routes/routesUser"));
+const routesQrcode_1 = __importDefault(require("../routes/routesQrcode"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)(); //se instancia expres
@@ -24,6 +25,7 @@ class Server {
     }
     routes() {
         this.app.use('/api/users', routesUser_1.default);
+        this.app.use('/api/qrcodes', routesQrcode_1.default);
     }
     middlewares() {
         this.app.use(express_1.default.json());

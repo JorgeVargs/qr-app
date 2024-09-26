@@ -2,14 +2,10 @@ import { db } from './dbService';
 import { User } from '../models/userModel';
 
 export const finUserByEmail = async(email:string) => {
-    try {
+   
         const [result] = await db.query<any>('SELECT id_usuario,email,password FROM usuarios WHERE email = ?',[email]);
 
         return result;
-        
-    } catch (error) {
-        console.log(`Error in query ${error}`)
-    }
 }
 
 
