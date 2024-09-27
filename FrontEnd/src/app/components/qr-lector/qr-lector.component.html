@@ -1,21 +1,23 @@
-<div class=" bg-white w-[400px] shadow-lg rounded-[20px]">
-    <div class="columns-2 sm:mx-auto sm:w-full py-8 bg-[#FFCF48] rounded-t-[20px] flex justify-between px-8">
-        <h1 class="text-center text-2xl font-bold text-black font-bold font-montserrat">Luis</h1>
-        <button class="bg-red-700 text-white font-bold py-2 px-4 rounded">
-            Salir
-        </button>
-    </div>
-
-    <div class="mx-auto text-center py-8 px-6  flex-col items-center justify-center">
-        <div class="columns-1 shadow-2xl rounded-2xl p-6 m-3">
-            <zxing-scanner [formats]="allowedFormats" (scanSuccess)="onScanSuccess($event)"
-                (scanError)="onScanError($event)" class="scanner">
-            </zxing-scanner>
+<div class="mx-auto flex min-h-screen place-content-center bg-[#640D5F] justify-center items-center">
+    <div class=" bg-white w-[400px] shadow-lg rounded-[20px]">
+        <div class="columns-2 sm:mx-auto sm:w-full py-8 bg-[#FFCF48] rounded-t-[20px] flex justify-between px-8">
+            <h1 class="text-center text-2xl font-bold text-black font-bold font-montserrat">Luis</h1>
+            <button class="bg-red-700 text-white font-bold py-2 px-4 rounded">
+                Salir
+            </button>
         </div>
 
-        <div class="columns-1 mt-10 justify-center">
-            <a class="flex w-full bg-[#FFCF48] justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 "
-                [routerLink]="['/points']" routerLinkActive="router-link-active">Regresar</a>
+        <div class="mx-auto text-center py-8 px-6  flex-col items-center justify-center">
+            <div class="columns-1 shadow-2xl rounded-2xl p-6 m-3">
+                <zxing-scanner [formats]="allowedFormats" (scanSuccess)="onScanSuccess($event)"
+                    (scanError)="onScanError($event)" class="scanner">
+                </zxing-scanner>
+            </div>
+
+            <div class="columns-1 mt-10 justify-center">
+                <a class="flex w-full bg-[#FFCF48] justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 "
+                    [routerLink]="['/points']" routerLinkActive="router-link-active">Regresar</a>
+            </div>
         </div>
     </div>
 </div>

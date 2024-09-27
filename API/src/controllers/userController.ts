@@ -41,7 +41,7 @@ export const newUser = async(req:Request,res:Response) => {
 
 
 export const loginUser = async (req:Request,res:Response) =>{
-    const { id_usuario,email,password} = req.body;
+    const {email,password} = req.body;
 
     try {
         //valida si existe el usuario con el correo
@@ -64,7 +64,7 @@ export const loginUser = async (req:Request,res:Response) =>{
 
         const token = jwt.sign({
             email:email,
-            id_usuario:id_usuario
+            id_usuario:userExist[0].id_usuario
         }, process.env.TOKEN_SECRET || 'brqd8rUYKdesqAf6xZUGT4q90epvXLB5g83Dwwl6sh9IZ4SKukd5bvYGKmxi7eQl',{
             expiresIn: '1800s'
         });

@@ -1,5 +1,6 @@
 import { Request, Response } from "express"
 import { createQrcode, findQrcode, getAllqr, regHistory, updatePointsUser } from "../services/qrcodeService";
+import { CustomRequest } from '../routes/decodificar-token';
 
 export const newQrCode = async (req: Request, res: Response) => {
     const { codigo, tipo, descripcion, puntos } = req.body;
@@ -43,13 +44,15 @@ export const getQrcodes = async (req: Request, res: Response) => {
     }
 }
 
-export const scanCode = async (req: Request, res: Response) => {
-    const { id_usuario, qrcode } = req.params;
+export const scanCode = async (req: CustomRequest, res: Response) => {
+    const { qrcode } = req.body;
+
+    const id_usuario = req.id_usuario;
 
     //validar si existe el código qr leido, si existe se obtiene id_qr,tipo, valor
     try {
         const qr = await findQrcode(qrcode);
-
+        
         if (qr.length == 0) {
             return res.status(400).json({
                 mensaje: 'El código no existe'

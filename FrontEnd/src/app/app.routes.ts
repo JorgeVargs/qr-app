@@ -7,6 +7,11 @@ import { NewJugadorComponent } from './components/new-jugador/new-jugador.compon
 import { authGuardGuard } from './utils/auth.guard.guard';
 
 export const routes: Routes = [
+    {path: 'admin', 
+        loadChildren:()=> import('./components/admin/admin.module').then(m => m.AdminModule),
+        
+    },
+
     { path:'', component:LoginComponent },
     { path:'points', component: PointsComponent,canActivate:[authGuardGuard]},
     { path: 'lector', component: QrLectorComponent,canActivate:[authGuardGuard]},

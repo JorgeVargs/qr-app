@@ -46,7 +46,7 @@ const newUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 });
 exports.newUser = newUser;
 const loginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { id_usuario, email, password } = req.body;
+    const { email, password } = req.body;
     try {
         //valida si existe el usuario con el correo
         const userExist = yield (0, userService_1.finUserByEmail)(email);
@@ -64,7 +64,7 @@ const loginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         }
         const token = jsonwebtoken_1.default.sign({
             email: email,
-            id_usuario: id_usuario
+            id_usuario: userExist[0].id_usuario
         }, process.env.TOKEN_SECRET || 'brqd8rUYKdesqAf6xZUGT4q90epvXLB5g83Dwwl6sh9IZ4SKukd5bvYGKmxi7eQl', {
             expiresIn: '1800s'
         });

@@ -43,6 +43,7 @@ export class LoginComponent {
         this.router.navigate(['/points'])
       },
       error:(e:HttpErrorResponse) => {
+        console.log(e)
         this.toastr.error(e.error.mensaje,'Error')
       }
     })
