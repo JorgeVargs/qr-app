@@ -8,10 +8,14 @@
         </div>
 
         <div class="mx-auto text-center py-8 px-6  flex-col items-center justify-center">
-            <div class="columns-1 shadow-2xl rounded-2xl p-6 m-3">
-                <zxing-scanner [formats]="allowedFormats" (scanSuccess)="onScanSuccess($event)"
-                    (scanError)="onScanError($event)" class="scanner">
-                </zxing-scanner>
+            <div class="columns-1 shadow-2xl rounded-2xl p-6 m-3" [ngClass]="{'hidden': hideElement}" >
+                <zxing-scanner 
+                #scanner
+                [formats]="allowedFormats" 
+                (scanSuccess)="onScanSuccess($event)"
+                (scanError)="onScanError($event)" 
+                class="scanner" 
+                ></zxing-scanner>
             </div>
 
             <div class="columns-1 mt-10 justify-center">

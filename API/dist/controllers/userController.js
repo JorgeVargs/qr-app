@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getUser = exports.loginUser = exports.newUser = void 0;
+exports.getDataUser = exports.loginUser = exports.newUser = void 0;
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const userService_1 = require("../services/userService");
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
@@ -76,11 +76,10 @@ const loginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.loginUser = loginUser;
-const getUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { id } = req.params;
+const getDataUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const id_usuario = req.id_usuario;
     try {
-        const user = yield (0, userService_1.findUserById)(id);
-        console.log(user.length);
+        const user = yield (0, userService_1.findUserById)(id_usuario);
         if (user.length == 0) {
             return res.status(404).json({
                 mensaje: 'Usuario no encontrado'
@@ -95,4 +94,4 @@ const getUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         });
     }
 });
-exports.getUser = getUser;
+exports.getDataUser = getDataUser;

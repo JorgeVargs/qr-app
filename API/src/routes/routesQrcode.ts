@@ -8,8 +8,8 @@ const router = Router();
 router.post('/',newQrCode);//administrador crear un código qr
 router.get('/', getQrcodes);//administrador obtener todos los códigos qr creados
 
-router.post('/escanea',validateToken,decodificarToken,scanCode); //usuario escanea código y envía el codigo y su id
-router.get('/:usuario')//obtiene lista de códigos qr escaneados
+router.post('/escanea',validateToken,decodificarToken,scanCode); //usuario escanea código y envía el valor del código QR
+
 
 
 export default router;

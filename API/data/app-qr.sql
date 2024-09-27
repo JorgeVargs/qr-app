@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   UNIQUE KEY `email` (`email`),
   KEY `rol` (`rol`),
   CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`rol`) REFERENCES `roles` (`id_rol`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=armscii8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=armscii8;
 
 -- La exportación de datos fue deseleccionada.
 

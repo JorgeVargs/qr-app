@@ -2,6 +2,7 @@ import { Request,Response } from "express"
 import bcrypt from 'bcrypt';
 import { createUser, findUserById, finUserByEmail } from "../services/userService";
 import jwt from 'jsonwebtoken';
+import { CustomRequest } from "../routes/decodificar-token";
 
 export const newUser = async(req:Request,res:Response) => {
     const {nombre,email,password,rol} = req.body;
@@ -76,12 +77,12 @@ export const loginUser = async (req:Request,res:Response) =>{
     }
 }
 
-export const getUser = async(req:Request,res:Response) => {
-    const { id } = req.params;
+export const getDataUser = async(req:CustomRequest,res:Response) => {
+    const id_usuario = req.id_usuario;
 
     try {
-        const user = await findUserById(id);
-        console.log(user.length);
+        const user = await findUserById(id_usuario);
+   
         if(user.length == 0){
             return res.status(404).json({
                 mensaje:'Usuario no encontrado'

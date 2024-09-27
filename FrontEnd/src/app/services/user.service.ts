@@ -19,4 +19,8 @@ export class UserService {
   logIn(user:User):Observable<string>{
     return this.http.post<string>(`${this.myApiURL}${this.myEndpoint}/login`,user);
   }
+
+  getDataUser():Observable<any>{
+    return this.http.get(`${this.myApiURL}${this.myEndpoint}/info`);
+  }
 }

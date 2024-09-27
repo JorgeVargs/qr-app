@@ -21,9 +21,9 @@ export const createUser = async(user:User) => {
     return (result as any).insertId;
 }
 
-export const findUserById = async(id_usuario:string) =>{
+export const findUserById = async(id_usuario?:string) =>{
     try {
-        const [result] = await db.query<any>('SELECT nombre,email,rol FROM usuarios WHERE id_usuario = ?',[id_usuario]);
+        const [result] = await db.query<any>('SELECT nombre,puntos_totales,rol FROM usuarios WHERE id_usuario = ?',[id_usuario]);
         return result;
     } catch (error) {
         console.log(`Error in query ${error}`)

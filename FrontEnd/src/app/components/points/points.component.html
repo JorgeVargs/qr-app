@@ -2,7 +2,7 @@
 
 <div class=" bg-white w-[400px] shadow-lg rounded-[20px]">
     <div class="columns-2 sm:mx-auto sm:w-full py-8 bg-[#FFCF48] rounded-t-[20px] flex justify-between px-8">
-        <h1 class="text-center text-2xl font-bold text-black font-bold font-montserrat">Luis</h1>
+        <h1 class="text-center text-2xl font-bold text-black font-bold font-montserrat">{{ nombre }}</h1>
         <button class="bg-secondary text-white font-bold py-2 px-4 rounded" (click)="logOut()" routerLink="/login">
             Salir
         </button>
@@ -13,7 +13,7 @@
         <div class="columns-1 shadow-2xl rounded-2xl p-6 m-3">
             <h2 class="text-center text-black text-xl font-bold font-montserrat">Tus puntos</h2>
 
-            <p class="font-bold text-black text-5xl mt-5 font-montserrat">240 <span class="text-2xl">pts</span></p>
+            <p class="font-bold text-black text-5xl mt-5 font-montserrat">{{ puntos }} <span class="text-2xl">pts</span></p>
         </div>
 
         <div class="columns-2 mt-10">
