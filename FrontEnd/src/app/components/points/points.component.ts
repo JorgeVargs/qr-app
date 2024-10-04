@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../../services/user.service';
+import { HistoryPointsComponent } from '../history-points/history-points.component';
 
 @Component({
   selector: 'app-points',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink,HistoryPointsComponent],
   templateUrl: './points.component.html',
   styleUrl: './points.component.scss'
 })

@@ -1,0 +1,10 @@
+<h2 class="text-center text-black text-xl font-bold font-montserrat">Historial</h2>
+<ul class="text-left mt-10">
+
+        @for(item of history; track item.id_usuario){
+            <li class="font-bold font-roboto border-b-2 border-gray-300 pb-2 mb-2">
+                <span>{{ item.fecha | date:'dd / MMM / YYYY' }}</span> {{ item.tipo }} <span>{{ item.cantidad }}</span>
+            </li>
+        }
+        
+</ul>
