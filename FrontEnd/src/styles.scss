@@ -6,3 +6,9 @@
 *, :after, :before {
     border: 0 solid #e0e0e0;
   }
+
+@import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
+
+i[class^="fa-"]{
+    margin-right: 10px;
+}
