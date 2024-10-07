@@ -27,4 +27,8 @@ export class QrcodeService {
       qrcode:qrcode
     });
   }
+  
+  delQr(id_qr:string):Observable<any>{
+    return this.http.delete(`${this.myApiURL}${this.myEndpoint}/delete/${id_qr}`);
+  }
 }

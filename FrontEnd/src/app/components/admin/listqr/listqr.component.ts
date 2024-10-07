@@ -3,11 +3,12 @@ import { QrcodeService } from '../../../services/qrcode.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { PointsService } from '../../../services/points.service';
 import { CommonModule } from '@angular/common';
+import { DeleteQrComponent } from "../crudQr/delete-qr/delete-qr.component";
 
 @Component({
   selector: 'app-listqr',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, DeleteQrComponent],
   templateUrl: './listqr.component.html',
   styleUrl: './listqr.component.scss'
 })

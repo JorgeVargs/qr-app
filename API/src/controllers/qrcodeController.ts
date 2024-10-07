@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import { createQrcode, findQrcode, getAllqr, regHistory, updatePointsUser } from "../services/qrcodeService";
+import { createQrcode, findQrcode, getAllqr, regHistory, updatePointsUser,deleteQr } from "../services/qrcodeService";
 import { CustomRequest } from '../routes/decodificar-token';
 
 export const newQrCode = async (req: Request, res: Response) => {
@@ -81,6 +81,29 @@ export const scanCode = async (req: CustomRequest, res: Response) => {
         return res.status(400).json({
             mensaje: "Error al registrar el código QR",
             error
+        })
+    }
+}
+
+export const deleteQrCode = async(req:Request, res:Response) => {
+    const { id } = req.params;
+
+    try {
+        const { affectedRows } =  await deleteQr(id);
+
+        if(affectedRows == 0){
+            return res.status(400).json({
+                mensaje:"No se ha realizado ninguna eliminación"
+            })
+        }
+        
+        res.status(201).json({
+            mensaje:"Código Qr Eliminado"
+        });
+        
+    } catch (error) {
+        return res.status(500).json({
+            mensaje: "Error al eliminar código QR"
         })
     }
 }
