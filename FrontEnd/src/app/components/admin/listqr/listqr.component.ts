@@ -4,11 +4,12 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { PointsService } from '../../../services/points.service';
 import { CommonModule } from '@angular/common';
 import { DeleteQrComponent } from "../crudQr/delete-qr/delete-qr.component";
+import { GenerateqrComponent } from "../generateqr/generateqr.component";
 
 @Component({
   selector: 'app-listqr',
   standalone: true,
-  imports: [CommonModule, DeleteQrComponent],
+  imports: [CommonModule, DeleteQrComponent, GenerateqrComponent],
   templateUrl: './listqr.component.html',
   styleUrl: './listqr.component.scss'
 })

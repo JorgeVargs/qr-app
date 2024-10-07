@@ -17,5 +17,5 @@ export const routes: Routes = [
     { path: 'lector', component: QrLectorComponent,canActivate:[authGuardGuard]},
     { path: 'rewards', component:RewardsComponent,canActivate:[authGuardGuard] },
     { path: 'registro', component: NewJugadorComponent },
-    { path: '**', redirectTo: '/' }
+    { path: '**', redirectTo: 'login' }
 ];

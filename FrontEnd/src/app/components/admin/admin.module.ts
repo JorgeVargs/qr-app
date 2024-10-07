@@ -5,6 +5,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { QrcodeService } from '../../services/qrcode.service';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { QRCodeModule } from 'angularx-qrcode';
 
 
 @NgModule({
@@ -13,8 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     CommonModule,
     RouterModule,
-    AdminRoutingModule
-    
+    AdminRoutingModule,
+    QRCodeModule
   ],
   providers: [QrcodeService]
 })

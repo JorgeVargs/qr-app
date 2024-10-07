@@ -1,3 +1,25 @@
-<h3>Genera Código QR</h3>
+<button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+    data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+    data-drawer-placement="right"
+    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900" (click)="showDialog()">
+    <i class="fa-solid fa-download"></i>
+    Genera QR
+</button>
 
 
+<div id="dialog" class="fixed left-0 top-0 bg-black bg-opacity-80 w-screen h-screen flex justify-center items-center opacity-0 hidden transition-opacity duration-500" (click)="hideDialog()">
+    <div class="bg-white rounded shadow-md p-8 w-[20%] flex gap-5 flex-col overflow-hidden" (click)="$event.stopImmediatePropagation()">
+       <div class="">
+          <h1 class="text-center font-bold text-2xl">Agrega un código QR</h1>
+       </div>
+ 
+       <div class="content flex justify-center">
+        <qrcode (qrCodeURL)="onChangeURL($event)" [qrdata]="qrCode" [width]="256" [margin]="0" [errorCorrectionLevel]="'M'"></qrcode>
+       </div>
+ 
+       <div class="footer flex flex-row justify-between">
+          <button (click)="hideDialog()" class="rounded-xl bg-red-700 pl-5 pr-5 pt-2 pb-2 text-white"><i class="fa-solid fa-rectangle-xmark"></i>Cerrar</button>
+          <a  class="rounded-xl bg-blue-700 pl-5 pr-5 pt-2 pb-2 text-white" download="qrcode" [href]="qrCodeDownload"><i class="fa-solid fa-floppy-disk"></i> Descargar</a>
+       </div>
+    </div>
+  </div>
