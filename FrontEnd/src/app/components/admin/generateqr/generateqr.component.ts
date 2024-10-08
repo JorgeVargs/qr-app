@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SafeUrl } from '@angular/platform-browser';
 import { QRCodeModule } from 'angularx-qrcode';
 
@@ -12,11 +12,20 @@ import { QRCodeModule } from 'angularx-qrcode';
 export class GenerateqrComponent {
   @Input() qrCode = '';
 
+  codeToQr:string = '';
+
   public qrCodeDownload:SafeUrl = "";
+
+  constructor(){}
 
 
   onChangeURL(url:SafeUrl){
     this.qrCodeDownload = url;
+  }
+
+  generaQr(){
+    this.codeToQr = this.qrCode;
+    console.log(this.codeToQr);
   }
 
   showDialog(){

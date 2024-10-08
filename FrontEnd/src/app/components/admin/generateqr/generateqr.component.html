@@ -1,7 +1,7 @@
 <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
     data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
     data-drawer-placement="right"
-    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900" (click)="showDialog()">
+    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900" (click)="showDialog();generaQr()">
     <i class="fa-solid fa-download"></i>
     Genera QR
 </button>
@@ -14,7 +14,7 @@
        </div>
  
        <div class="content flex justify-center">
-        <qrcode (qrCodeURL)="onChangeURL($event)" [qrdata]="qrCode" [width]="256" [margin]="0" [errorCorrectionLevel]="'M'"></qrcode>
+        <qrcode (qrCodeURL)="onChangeURL($event)" [qrdata]="codeToQr" [width]="256" [margin]="0" [errorCorrectionLevel]="'M'"></qrcode>
        </div>
  
        <div class="footer flex flex-row justify-between">
